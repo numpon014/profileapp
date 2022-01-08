@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import GlobalStyle from './global-style';
+import GlobalStyle from './globalStyle';
 import Layout from './containers/layouts/commonLayout';
 import ProfileListPage from './containers/pages/profileListPage';
 
