@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import logo from "../../../logo.svg";
+import logo from "../../../assets/logo.svg";
 
 const StyledWrap = styled.div`
   .App {

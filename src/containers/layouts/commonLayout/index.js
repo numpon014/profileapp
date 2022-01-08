@@ -13,7 +13,6 @@ const StyledWrap = styled.div`
     margin: 0 auto;
     display: flex;
     min-height: 100%;
-    padding: 0 16px;
     flex-direction: column;
   }
 `;

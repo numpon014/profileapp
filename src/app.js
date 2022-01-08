@@ -4,12 +4,12 @@ import { Helmet } from 'react-helmet';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GlobalStyle from './global-style';
-import Layout from '../layouts/commonLayout';
-import ProfileListPage from '../pages/profileListPage';
+import Layout from './containers/layouts/commonLayout';
+import ProfileListPage from './containers/pages/profileListPage';
 
 export default function App() {
   return (
-    <>
+    <div id="app">
       <Helmet titleTemplate="%s - Profile App" defaultTitle="Profile App">
         <meta name="description" content="Profile App by Numpon M." />
       </Helmet>
@@ -19,6 +19,6 @@ export default function App() {
         </Route>
       </Switch>
       <GlobalStyle />
-    </>
+    </div>
   );
 }

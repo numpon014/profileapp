@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import history from './utils/history';
 
-import App from './containers/app';
 import reportWebVitals from './reportWebVitals';
 import configureStore from './configureStore';
+import App from './app';
 
 const initialState = {};
 const store = configureStore(initialState, history);
