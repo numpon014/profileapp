@@ -15,6 +15,8 @@ COPY . /usr/src/app
 
 RUN yarn build
 
+RUN sed -e "s;%DATE%;$(date);g" -e "s;%BUILD%;${BUILD_NUMBER};g" -e "s;%REVISION%;${REVISION};g" version.template.json > build/version.json
+
 #------------------------------------------------------------------------------
 # Result Image
 #------------------------------------------------------------------------------
