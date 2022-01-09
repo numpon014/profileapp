@@ -5,12 +5,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Card, Col, Row } from "react-bootstrap";
+import { BsEnvelope, BsTelephone, BsGlobe } from "react-icons/bs";
 import { getUsers } from '../../../shares/actions/user';
 
 const StyledWrap = styled.div`
   .profile-image {
     height: 150px;
     background: #f5f6fa;
+  }
+  
+  .icon {
+    padding-right: 10px;
+    
+    svg {
+      vertical-align: -0.125em;
+    }
   }
 `;
 
@@ -38,9 +47,20 @@ function UserListPage({ users, getAllUsers }) {
               />
               <Card.Body>
                 <Card.Title>{user.name}</Card.Title>
-                <div className="email">{user.email}</div>
-                <div className="phone">{user.phone}</div>
-                <div className="website">{user.website}</div>
+                <address>
+                  <div className="email">
+                    <span className="icon"><BsEnvelope/></span>
+                    <span>{user.email}</span>
+                  </div>
+                  <div className="phone">
+                    <span className="icon"><BsTelephone/></span>
+                    <span>{user.phone}</span>
+                  </div>
+                  <div className="website">
+                    <span className="icon"><BsGlobe/></span>
+                    <span>{user.website}</span>
+                  </div>
+                </address>
               </Card.Body>
               <Card.Footer>
                 <Card.Link href="#">Card Link</Card.Link>
