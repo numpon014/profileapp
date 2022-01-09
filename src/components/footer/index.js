@@ -8,7 +8,6 @@ const StyledWrap = styled.div`
 `;
 
 function Footer({ className }) {
-
   return (
     <StyledWrap className={className}>
       <footer>
