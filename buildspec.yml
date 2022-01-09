@@ -1,0 +1,47 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_ACCOUNT_ID: "312726873549"
+    IMAGE_NAME: "profileapp-web"
+    TASKDEF_TEMPLATE_FILE: "taskdef.template.json"
+    FAMILY: "profileapp-web"
+    CLUSTER: "profile-app"
+    SERVICE_NAME: "profileapp-web"
+    DESIRED_COUNT: "1"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_NAME
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - TASKDEF_FILE=${TASKDEF_TEMPLATE_FILE}-${IMAGE_TAG}
+      - REPOSITORY_URI_WITH_TAG=$REPOSITORY_URI:$IMAGE_TAG
+      - TASKDEF_FILE=taskdef-$IMAGE_TAG.json
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build --build-arg BUILD_NUMBER=${CODEBUILD_BUILD_ID} --build-arg REVISION=${CODEBUILD_SOURCE_VERSION} -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo Writing image definitions file...
+      - sed -e "s;%NAME%;${IMAGE_NAME};g" -e "s;%REPOSITORY_URI%;${REPOSITORY_URI_WITH_TAG};g" $TASKDEF_TEMPLATE_FILE > $TASKDEF_FILE
+      - echo Create TaskDefinition..
+      - REVISION=`aws ecs register-task-definition --family $FAMILY --cli-input-json file://$TASKDEF_FILE --region $AWS_DEFAULT_REGION | jq .taskDefinition.revision`
+      - echo Update Service..
+      - aws ecs update-service --cluster $CLUSTER --region $AWS_DEFAULT_REGION --service $SERVICE_NAME --task-definition $FAMILY:$REVISION --desired-count $DESIRED_COUNT --force-new-deployment
+      - echo Deploy completed on `date`
+artifacts:
+  files: $TASKDEF_FILE

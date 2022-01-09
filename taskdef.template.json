@@ -1,0 +1,25 @@
+{
+  "family": "%NAME%",
+  "containerDefinitions": [
+    {
+      "image": "%REPOSITORY_URI%",
+      "name": "%NAME%",
+      "cpu": 128,
+      "memory": 256,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 9000,
+          "hostPort": 0
+        }
+      ],
+      "ulimits": [
+        {
+          "name": "nofile",
+          "softLimit": 1024000,
+          "hardLimit": 1024000
+        }
+      ]
+    }
+  ]
+}
