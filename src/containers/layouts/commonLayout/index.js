@@ -41,7 +41,10 @@ function DefaultLayout({ component: Component }) {
 }
 
 DefaultLayout.propTypes = {
-  component: PropTypes.object,
+  component: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.func
+  ]),
 };
 
 export default DefaultLayout;

@@ -4,50 +4,12 @@ import styled from "styled-components";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import {Button, Card, Col, Row, Container} from "react-bootstrap";
-import { BsEnvelope, BsTelephone, BsGlobe, BsHeart, BsTrash } from "react-icons/bs";
-import { FiEdit3 } from "react-icons/fi";
+import { Col, Row, Container} from "react-bootstrap";
 import { getUsers } from '../../../shares/actions/user';
+import UserCard from "../../../components/userCard";
+import LoadingIndicator from "../../../components/loadingIndicator";
 
-const StyledWrap = styled.div`
-  .profile-image {
-    height: 150px;
-    background: #f5f6fa;
-  }
-
-  .icon {
-    padding-right: 10px;
-
-    svg {
-      vertical-align: -0.125em;
-    }
-  }
-
-  .detail {
-    overflow:hidden;
-    white-space:nowrap;
-    text-overflow:ellipsis;
-    width:auto;
-  }
-  
-  .card-title {
-    overflow:hidden;
-    white-space:nowrap;
-    text-overflow:ellipsis;
-    width:auto;
-  }
-  
-  .profile-buttons {
-    .button-cols {
-      text-align: center;
-      border-left: #d5d7e0 1px solid;
-
-      &:first-child {
-        border-left: 0 none;
-      }
-    }
-  }
-`;
+const StyledWrap = styled.div``;
 
 function UserListPage({ users, getAllUsers }) {
   useEffect(() => {
@@ -65,54 +27,13 @@ function UserListPage({ users, getAllUsers }) {
       </Helmet>
       <Container>
         <Row xs={1} md={4} className="g-4">
-          { users.map(user => (
-            <Col key={`${user.id}-${user.username}`}>
-              <Card>
-                <Card.Img variant="top"
-                          className="profile-image"
-                          src={`https://avatars.dicebear.com/v2/avataaars/${user.username.toLowerCase()}.svg?options[mood][]=happy`}
-                />
-                <Card.Body>
-                  <Card.Title>{user.name}</Card.Title>
-                  <address>
-                    <div className="email detail">
-                      <span className="icon"><BsEnvelope/></span>
-                      <span>{user.email}</span>
-                    </div>
-                    <div className="phone detail">
-                      <span className="icon"><BsTelephone/></span>
-                      <span>{user.phone}</span>
-                    </div>
-                    <div className="website detail">
-                      <span className="icon"><BsGlobe/></span>
-                      <span>{user.website}</span>
-                    </div>
-                  </address>
-                </Card.Body>
-                <Card.Footer className="profile-buttons">
-                  <Container className="p-0">
-                    <Row>
-                      <Col sm xs={4} className="button-cols">
-                        <Button className="like-btn" variant="link">
-                          <BsHeart size={18} color="red"/>
-                        </Button>
-                      </Col>
-                      <Col sm xs={4} className="button-cols">
-                        <Button className="edit-btn" variant="link">
-                          <FiEdit3 size={18} color="gray"/>
-                        </Button>
-                      </Col>
-                      <Col sm xs={4} className="button-cols">
-                        <Button className="delete-btn" variant="link">
-                          <BsTrash size={18} color="gray"/>
-                        </Button>
-                      </Col>
-                    </Row>
-                  </Container>
-                </Card.Footer>
-              </Card>
-            </Col>
-          ))}
+          { !users ?
+            <LoadingIndicator /> :
+            users.map(user => (
+              <Col key={`${user.id}-${user.username}`}>
+                <UserCard user={user} />
+              </Col>))
+          }
         </Row>
       </Container>
     </StyledWrap>
