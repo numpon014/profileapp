@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Header from '../../../components/header'
 
 const StyledWrap = styled.div`
   min-height: 100%;
@@ -30,14 +31,12 @@ const StyledWrap = styled.div`
 function DefaultLayout({ component: Component }) {
   return (
     <StyledWrap>
-      <header className="main-header">
-        Header
-      </header>
+      <Header className="main-header" />
       <div className="main-body">
         <Component />
       </div>
       <footer className="main-footer">
-        Footer
+        Power by Numpon M.
       </footer>
     </StyledWrap>
   );

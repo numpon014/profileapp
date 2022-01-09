@@ -76,23 +76,25 @@ function UserListPage({ users, getAllUsers }) {
                   </address>
                 </Card.Body>
                 <Card.Footer className="profile-buttons">
-                  <Row>
-                    <Col sm className="button-cols">
-                      <Button className="like-btn" variant="link">
-                        <BsHeart size={18} color="red"/>
-                      </Button>
-                    </Col>
-                    <Col sm className="button-cols">
-                      <Button className="edit-btn" variant="link">
-                        <FiEdit3 size={18} color="gray"/>
-                      </Button>
-                    </Col>
-                    <Col sm className="button-cols">
-                      <Button className="delete-btn" variant="link">
-                        <BsTrash size={18} color="gray"/>
-                      </Button>
-                    </Col>
-                  </Row>
+                  <Container className="p-0">
+                    <Row>
+                      <Col sm className="button-cols">
+                        <Button className="like-btn" variant="link">
+                          <BsHeart size={18} color="red"/>
+                        </Button>
+                      </Col>
+                      <Col sm className="button-cols">
+                        <Button className="edit-btn" variant="link">
+                          <FiEdit3 size={18} color="gray"/>
+                        </Button>
+                      </Col>
+                      <Col sm className="button-cols">
+                        <Button className="delete-btn" variant="link">
+                          <BsTrash size={18} color="gray"/>
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Container>
                 </Card.Footer>
               </Card>
             </Col>
