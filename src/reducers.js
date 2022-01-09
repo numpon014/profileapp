@@ -5,8 +5,8 @@ import { userReducer } from './shares/reducers/user';
 
 export default function createReducer(injectedReducers = {}) {
   return combineReducers({
-    router: connectRouter(history),
     user: userReducer,
+    router: connectRouter(history),
     ...injectedReducers,
   });
 }

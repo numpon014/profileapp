@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import GlobalStyle from './globalStyle';
 import Layout from './containers/layouts/commonLayout';
 import UserListPage from './containers/pages/userListPage';
+import NotFoundPage from './containers/pages/notFoundPage';
 
 export default function App() {
   return (
@@ -14,8 +15,11 @@ export default function App() {
         <meta name="description" content="Profile App by Numpon M." />
       </Helmet>
       <Switch>
-        <Route path="/" exact>
+        <Route exact path="/">
           <Layout component={UserListPage} />
+        </Route>
+        <Route exact path="">
+          <Layout component={NotFoundPage} />
         </Route>
       </Switch>
       <GlobalStyle />
