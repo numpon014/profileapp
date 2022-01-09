@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GlobalStyle from './globalStyle';
 import Layout from './containers/layouts/commonLayout';
-import ProfileListPage from './containers/pages/profileListPage';
+import UserListPage from './containers/pages/userListPage';
 
 export default function App() {
   return (
@@ -15,7 +15,7 @@ export default function App() {
       </Helmet>
       <Switch>
         <Route path="/" exact>
-          <Layout component={ProfileListPage} />
+          <Layout component={UserListPage} />
         </Route>
       </Switch>
       <GlobalStyle />
