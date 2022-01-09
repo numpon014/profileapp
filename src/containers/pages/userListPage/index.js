@@ -23,6 +23,20 @@ const StyledWrap = styled.div`
     }
   }
 
+  .detail {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    width:auto;
+  }
+  
+  .card-title {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    width:auto;
+  }
+  
   .profile-buttons {
     .button-cols {
       text-align: center;
@@ -61,15 +75,15 @@ function UserListPage({ users, getAllUsers }) {
                 <Card.Body>
                   <Card.Title>{user.name}</Card.Title>
                   <address>
-                    <div className="email">
+                    <div className="email detail">
                       <span className="icon"><BsEnvelope/></span>
                       <span>{user.email}</span>
                     </div>
-                    <div className="phone">
+                    <div className="phone detail">
                       <span className="icon"><BsTelephone/></span>
                       <span>{user.phone}</span>
                     </div>
-                    <div className="website">
+                    <div className="website detail">
                       <span className="icon"><BsGlobe/></span>
                       <span>{user.website}</span>
                     </div>
@@ -78,17 +92,17 @@ function UserListPage({ users, getAllUsers }) {
                 <Card.Footer className="profile-buttons">
                   <Container className="p-0">
                     <Row>
-                      <Col sm className="button-cols" xs={4}>
+                      <Col sm xs={4} className="button-cols">
                         <Button className="like-btn" variant="link">
                           <BsHeart size={18} color="red"/>
                         </Button>
                       </Col>
-                      <Col sm className="button-cols" xs={4}>
+                      <Col sm xs={4} className="button-cols">
                         <Button className="edit-btn" variant="link">
                           <FiEdit3 size={18} color="gray"/>
                         </Button>
                       </Col>
-                      <Col sm className="button-cols" xs={4}>
+                      <Col sm xs={4} className="button-cols">
                         <Button className="delete-btn" variant="link">
                           <BsTrash size={18} color="gray"/>
                         </Button>

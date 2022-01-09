@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Header from '../../../components/header'
+import Footer from '../../../components/footer'
 
 const StyledWrap = styled.div`
   min-height: 100%;
@@ -19,7 +20,6 @@ const StyledWrap = styled.div`
   .main-header {
     margin-bottom: 10px;
     text-align: center;
-    padding: 0 10px;
   }
   
   .main-footer {
@@ -35,9 +35,7 @@ function DefaultLayout({ component: Component }) {
       <div className="main-body">
         <Component />
       </div>
-      <footer className="main-footer">
-        Power by Numpon M.
-      </footer>
+      <Footer className="main-footer"/>
     </StyledWrap>
   );
 }
