@@ -15,7 +15,6 @@ COPY . /usr/src/app
 
 RUN yarn build
 
-
 #------------------------------------------------------------------------------
 # Result Image
 #------------------------------------------------------------------------------
@@ -26,6 +25,7 @@ WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app/build ./build
 COPY --from=builder /usr/src/app/server ./server
 COPY --from=builder /usr/src/app/package.json .
+COPY --from=builder /usr/src/app/yarn.lock .
 
 RUN yarn install --production
 
