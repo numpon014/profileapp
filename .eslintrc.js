@@ -24,6 +24,12 @@ module.exports = {
     "rules": {
         "react/react-in-jsx-scope": "off",
         "react/jsx-filename-extension": "off",
-        "no-console": "error"
+        'react/forbid-prop-types': "off",
+        'react/require-default-props': "off",
+        "no-console": "error",
+        'import/prefer-default-export': "off",
+        'default-param-last': "off",
+        'no-use-before-define': "off",
+        'no-promise-executor-return': "off",
     }
 };
