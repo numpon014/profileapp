@@ -78,17 +78,17 @@ function UserListPage({ users, getAllUsers }) {
                 <Card.Footer className="profile-buttons">
                   <Container className="p-0">
                     <Row>
-                      <Col sm className="button-cols">
+                      <Col sm className="button-cols" xs={4}>
                         <Button className="like-btn" variant="link">
                           <BsHeart size={18} color="red"/>
                         </Button>
                       </Col>
-                      <Col sm className="button-cols">
+                      <Col sm className="button-cols" xs={4}>
                         <Button className="edit-btn" variant="link">
                           <FiEdit3 size={18} color="gray"/>
                         </Button>
                       </Col>
-                      <Col sm className="button-cols">
+                      <Col sm className="button-cols" xs={4}>
                         <Button className="delete-btn" variant="link">
                           <BsTrash size={18} color="gray"/>
                         </Button>
