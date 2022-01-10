@@ -4,9 +4,9 @@
 https://profile.numpon.com
 
 ### Tech Stack
-F/E: React, Redux, React-Boostrap
-Infrastructure: AWS, ALB, ECS, Docker
-CI/CD: AWSCodebuild
+F/E: React, Redux, React-Boostrap \
+CI/CD: AWSCodebuild (buildspec.yml) \
+Infrastructure: AWS, ALB, ECS, Docker \
 
 ### Infrastructure
 Route53 > ALB > ECS (Docker) > EC2 \

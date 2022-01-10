@@ -33,8 +33,8 @@ function TextWithIcon({ className, icon, text }) {
 
 TextWithIcon.propTypes = {
   className: PropTypes.string,
-  text: PropTypes.string,
-  icon: PropTypes.object,
+  text: PropTypes.string.isRequired,
+  icon: PropTypes.object.isRequired,
 };
 
 export default TextWithIcon;

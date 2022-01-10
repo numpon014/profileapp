@@ -12,7 +12,6 @@ export function getUsers(failMessage, callback) {
         if (typeof callback === 'function') callback(users);
       })
       .catch(err => {
-        // dispatch(alertActions.error(failMessage));
         dispatch(failure(err.toString()));
       });
   };

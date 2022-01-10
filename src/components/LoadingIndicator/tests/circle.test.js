@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 
 import Circle from '../circle';
 
-/* eslint-disable-next-line no-undef */
 describe('<Circle />', () => {
   it('should render an <div> tag', () => {
     const { container } = render(<Circle />);

@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Col, Row, Container} from "react-bootstrap";
-import { getUsers } from '../../../shares/actions/user';
-import UserCard from "../../../components/userCard";
-import LoadingIndicator from "../../../components/loadingIndicator";
+import { getUsers } from 'shares/actions/user';
+import UserCard from "components/UserCard";
+import LoadingIndicator from "components/LoadingIndicator";
 
 const StyledWrap = styled.div``;
 

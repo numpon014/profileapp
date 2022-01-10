@@ -85,6 +85,9 @@ const hasJsxRuntime = (() => {
   }
 })();
 
+const appDirectory = fs.realpathSync(process.cwd());
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function (webpackEnv) {
@@ -317,6 +320,10 @@ module.exports = function (webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
         ...(modules.webpackAliases || {}),
+        components: resolveApp('src/components'),
+        containers: resolveApp('src/containers'),
+        shares: resolveApp('src/shares'),
+        assets: resolveApp('src/assets'),
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).

@@ -4,9 +4,9 @@ import { Helmet } from 'react-helmet';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GlobalStyle from './globalStyle';
-import Layout from './containers/layouts/commonLayout';
-import UserListPage from './containers/pages/userListPage';
-import NotFoundPage from './containers/pages/notFoundPage';
+import Layout from './containers/layouts/CommonLayout';
+import UserListPage from './containers/pages/UserListPage';
+import NotFoundPage from './containers/pages/NotFoundPage';
 
 export default function App() {
   return (
