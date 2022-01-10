@@ -13,7 +13,7 @@ env:
 phases:
   install:
     runtime-versions:
-      nodejs: 14
+      nodejs: latest
     commands:
       - echo Installing app dependencies...
       - yarn install
