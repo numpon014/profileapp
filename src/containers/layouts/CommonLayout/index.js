@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Header from '../../../components/header'
-import Footer from '../../../components/footer'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 
 const StyledWrap = styled.div`
   min-height: 100%;

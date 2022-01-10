@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Card, Col, Container, Row} from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { BsEnvelope, BsGlobe, BsHeart, BsTelephone, BsTrash } from "react-icons/bs";
 import { FiEdit3 } from "react-icons/fi";
-import TextWithIcon from "../textWithIcon";
-import ButtonWithIcon from "../buttonWithIcon";
+import TextWithIcon from "components/TextWithIcon";
+import ButtonWithIcon from "components/ButtonWithIcon";
 
 const StyledWrap = styled.div`
   .profile-image {
