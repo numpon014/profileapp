@@ -14,11 +14,12 @@ phases:
   install:
     runtime-versions:
       nodejs: 14
+    commands:
+      - echo Installing app dependencies...
+      - yarn install
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-#      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
-#      - $(aws ecr get-login --region $AWS_DEFAULT_REGION | docker login -u AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com)
       - aws ecr get-login-password | docker login --username AWS --password-stdin https://$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
       - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_NAME
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
@@ -29,10 +30,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - echo Installing app dependencies...
-      - yarn install
       - echo Run tests...
-      - npm run test
+      - yarn run test
       - echo Building the Docker image...
       - docker build --build-arg BUILD_NUMBER=${CODEBUILD_BUILD_ID} --build-arg REVISION=${CODEBUILD_SOURCE_VERSION} -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG

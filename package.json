@@ -6,7 +6,8 @@
     "start": "node scripts/start.js",
     "start:prod": "node server",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
+    "test": "node scripts/test.js --watchAll=false",
+    "test:watch": "node scripts/test.js",
     "lint:staged": "lint-staged",
     "lint:eslint:fix": "eslint --ignore-path .gitignore --ignore-pattern scripts --ignore-pattern config --fix"
   },
