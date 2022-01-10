@@ -78,7 +78,7 @@ function UserCard({ className, user : { username, name, email, phone, website } 
 
 UserCard.propTypes = {
   className: PropTypes.string,
-  user: PropTypes.object,
+  user: PropTypes.object.isRequired,
 };
 
 export default UserCard;

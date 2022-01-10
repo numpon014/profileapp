@@ -14,6 +14,9 @@ phases:
   install:
     runtime-versions:
       nodejs: 10
+    commands:
+      - echo Installing app dependencies...
+      - yarn install
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
@@ -27,6 +30,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - echo Run tests...
+      - npm run test
       - echo Building the Docker image...
       - docker build --build-arg BUILD_NUMBER=${CODEBUILD_BUILD_ID} --build-arg REVISION=${CODEBUILD_SOURCE_VERSION} -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
@@ -45,3 +50,7 @@ phases:
       - echo Deploy completed on `date`
 artifacts:
   files: $TASKDEF_FILE
+
+cache:
+  paths:
+    - './node_modules/**/*'
