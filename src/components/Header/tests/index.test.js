@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { createMemoryHistory } from 'history';
 
-import Header from '../index';
 import configureStore from '../../../configureStore';
+import Header from '../index';
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({t: key => key})
