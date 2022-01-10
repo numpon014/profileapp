@@ -39,4 +39,15 @@ describe('<Header />', () => {
     expect(container.querySelector(`a.home-link`)).not.toBeNull();
     expect(container.querySelector(`img.logo`)).not.toBeNull();
   });
+
+  it('should render a div', () => {
+    const { container } = render(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Header />
+        </ConnectedRouter>
+      </Provider>,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
