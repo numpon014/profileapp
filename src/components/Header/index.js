@@ -33,7 +33,7 @@ function Header({ className }) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">
+              <Nav.Link as={Link} to="/" className="home-link">
                 {t('app.header.navbar.home')}
               </Nav.Link>
             </Nav>
