@@ -13,10 +13,7 @@ env:
 phases:
   install:
     runtime-versions:
-      nodejs: latest
-    commands:
-      - echo Installing app dependencies...
-      - yarn install
+      nodejs: 14
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
@@ -30,6 +27,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - echo Installing app dependencies...
+      - yarn install
       - echo Run tests...
       - npm run test
       - echo Building the Docker image...
