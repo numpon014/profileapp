@@ -3,21 +3,21 @@
 ### URL
 https://profile.numpon.com
 
-### Tech Stack
-F/E: React, Redux, React-boostrap, React-i18next \
-CI/CD: AWSCodebuild (buildspec.yml) \
-Infrastructure: AWS, ALB, ECS, Docker \
-
-### Infrastructure
-Route53 > ALB > ECS (Docker) > EC2 \
-<< TBF Image >>
-
 ## Available Scripts
 
-In the project directory, you can run:
+Run Development Env:
 
 ### `npm start`
 
-production:
+Run Production Env:
 
 ### `npm run start:prod`
+
+### Tech Stack
+F/E: React, Redux, React-boostrap, React-i18next \
+Infrastructure: AWS, ALB, ECS, Docker \
+CI/CD: AWSCodebuild (buildspec.yml) \
+
+### Infrastructure
+![Infrastructure Diagram](infrastructure-diagram.png)
+Route53 > ALB > ECS (Docker) > EC2
