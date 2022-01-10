@@ -8,10 +8,13 @@ import { Col, Row, Container} from "react-bootstrap";
 import { getUsers } from 'shares/actions/user';
 import UserCard from "components/UserCard";
 import LoadingIndicator from "components/LoadingIndicator";
+import { useTranslation } from 'react-i18next';
 
 const StyledWrap = styled.div``;
 
 function UserListPage({ users, getAllUsers }) {
+  const { t } = useTranslation();
+
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -19,10 +22,10 @@ function UserListPage({ users, getAllUsers }) {
   return (
     <StyledWrap>
       <Helmet>
-        <title>User List Page</title>
+        <title>{t('app.page.profileList.title')}</title>
         <meta
-          name='user list page'
-          content='user list page'
+          name={t('app.page.profileList.meta.name')}
+          content={t('app.page.profileList.meta.content')}
         />
       </Helmet>
       <Container>
