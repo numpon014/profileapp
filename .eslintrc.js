@@ -32,5 +32,12 @@ module.exports = {
         'default-param-last': "off",
         'no-use-before-define': "off",
         'no-promise-executor-return': "off",
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            }
+        }
     }
 };

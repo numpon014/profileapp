@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
-import appLogo from '../../assets/images/logo.png';
+import appLogo from 'assets/images/logo.png';
 
 const StyledWrap = styled.div`
   .logo {
