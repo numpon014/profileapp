@@ -4,7 +4,7 @@
 https://profile.numpon.com
 
 ### Tech Stack
-F/E: React, Redux, React-Boostrap \
+F/E: React, Redux, React-boostrap, React-i18next \
 CI/CD: AWSCodebuild (buildspec.yml) \
 Infrastructure: AWS, ALB, ECS, Docker \
 

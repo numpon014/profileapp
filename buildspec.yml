@@ -50,7 +50,6 @@ phases:
       - echo Deploy completed on `date`
 artifacts:
   files: $TASKDEF_FILE
-
 cache:
   paths:
     - './node_modules/**/*'

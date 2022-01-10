@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
 import appLogo from 'assets/images/logo.png';
+import { useTranslation } from 'react-i18next';
 
 const StyledWrap = styled.div`
   .logo {
@@ -16,6 +17,7 @@ const StyledWrap = styled.div`
 `;
 
 function Header({ className }) {
+  const { t } = useTranslation();
 
   return (
     <StyledWrap className={className}>
@@ -24,7 +26,7 @@ function Header({ className }) {
           <Navbar.Brand as={Link} to="/">
             <img
               src={appLogo}
-              alt="Profile Logo"
+              alt={t('app.logo')}
               className="logo"
             />
           </Navbar.Brand>
@@ -32,7 +34,7 @@ function Header({ className }) {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">
-                Home
+                {t('app.header.navbar.home')}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
