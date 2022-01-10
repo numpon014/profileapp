@@ -32,7 +32,7 @@ function ButtonWithIcon({ className, icon }) {
 
 ButtonWithIcon.propTypes = {
   className: PropTypes.string,
-  icon: PropTypes.object,
+  icon: PropTypes.object.isRequired,
 };
 
 export default ButtonWithIcon;
